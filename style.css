@@ -1,0 +1,80 @@
+#outer-container {
+    border: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(219, 233, 22, 0.956);
+    height: 95vh;
+}
+
+#formula {
+    width: fit-content;
+}
+
+#controls, #num-view {
+    display: flex;
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+}
+
+#num-view {
+    font-size: 25px;
+    padding: 3px;
+    color: black;
+    height: 10%;
+    align-items: center;
+    background-color: white;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#controls {
+    flex-direction: column;    
+    height:90%;
+    padding: 10px;
+    width: 90%;
+    align-self: center;
+    background-color: rgba(7, 86, 198, 0.659);
+    backdrop-filter: blur(10px);
+} 
+
+.control-row {
+    height: 20%;
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.control, .control3, .control2 {
+    background-color: rgba(49, 49, 57, 0.318);
+    height: 75%;
+    border: solid;
+    border-width: 1px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control {
+    width: 30%;
+}
+
+.control2 {
+    width: 50%;
+}
+
+.control3 {
+    width: 30%;
+}
+
+#r5 #zero {
+    width: 62%;
+}
