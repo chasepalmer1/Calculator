@@ -13,7 +13,10 @@
 }
 
 #formula {
+    border: none; 
+    width: 100%;
     height: 35px;
+    overflow-x: scroll;
 }
 
 #controls, #num-view {
@@ -53,7 +56,7 @@
     justify-content: center;
 }
 
-.control, .control3, .control2 {
+.control {
     background-color: rgba(49, 49, 57, 0.13);
     height: 75%;
     border: solid;
@@ -64,18 +67,10 @@
     justify-content: center;
 }
 
-.control:active, .control3:active, .control2:active {
+.control:active {
     background-color: #1313125f;
 }
 
 .control {
-    width: 30%;
-}
-
-.control2 {
-    width: 50%;
-}
-
-.control3 {
     width: 30%;
 }

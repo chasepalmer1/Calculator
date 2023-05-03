@@ -1,5 +1,6 @@
 var running = "";
 var cursorIndex = 0;
+var result = 0;
 
 const numView = document.querySelector('#num-view');
 
@@ -10,16 +11,31 @@ const right = document.querySelector('#right');
 const equals = document.querySelector('#equal');
 const back = document.querySelector('#back');
 
+function addText(id) {
+    if (running.length == 0 || cursorIndex == running.length) {
+        running = running.substring(0,cursorIndex - 1) + id + "|";
+        cursorIndex = running.length;
+    } else {
+        running = running.substring(0,cursorIndex - 1) + id + running.substring(cursorIndex - 1, running.length);
+        cursorIndex++;
+    }        
+    numView.textContent = running;
+} 
+
+function parseText() {
+    running.replace("x", "*");
+    running.replace("|", "");
+    result = math.evaluate(running);
+    numView.textContent = result;
+}
+
 textButtons.forEach((textButton) => {
     textButton.addEventListener("click", () => {
-        if (running.length == 0 || cursorIndex == running.length) {
-            running = running.substring(0,cursorIndex - 1) + textButton.id + "|";
-            cursorIndex = running.length;
+        if (textButton.id != "neg") {        
+            addText(textButton.id);
         } else {
-            running = running.substring(0,cursorIndex - 1) + textButton.id + running.substring(cursorIndex - 1, running.length);
-            cursorIndex++;
-        }        
-        numView.textContent = running;
+            addText("-");
+        }
     });
 });
 
@@ -51,10 +67,10 @@ right.addEventListener("click", () => {
 back.addEventListener("click", () => {
     running = running.substring(0,running.length - 1);
     numView.textContent = running + "|";
+    cursorIndex--;
 });
 
 equals.addEventListener("click", () => {
     console.log('equals');
+    parseText();
 });
-
-
