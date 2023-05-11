@@ -23,10 +23,19 @@ function addText(id) {
 } 
 
 function parseText() {
-    running.replace("x", "*");
-    running.replace("|", "");
-    result = math.evaluate(running);
-    numView.textContent = result;
+    running = running.replace("x", "%2A"); // %2A
+    running = running.replace("/", "%2F"); // %2F
+    running = running.replace("-", "%2D"); // %2D
+    running = running.replace("+", "%2B"); // %2B
+    running = running.replace("^", "%5E"); // %5E
+    running = running.replace("|", ""); 
+    console.log(running);
+    let response = fetch("http://api.mathjs.org/v4/?expr=" + running, {
+        method: "GET",
+    })
+    .then((response) => console.log(response.json()));
+    running = "";
+    cursorIndex = 0;
 }
 
 textButtons.forEach((textButton) => {
